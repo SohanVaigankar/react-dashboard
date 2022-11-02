@@ -1,0 +1,32 @@
+.list{
+    .cell-wrapper{
+        display: flex;
+        align-items: center;
+
+        .product-img{
+            height: 3.2rem;
+            width: 3.2rem;
+            border-radius: 1rem;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+    }
+
+    .status{
+        padding: 0.4rem;
+        border-radius: 0.5rem;
+
+        &.Approved{
+            color: green;
+            background-color:rgba(0, 128, 0, 0.150)
+        }
+        &.Pending{
+            color:rgb(201, 149, 18);
+            background-color:rgba(189, 189, 3, 0.100)
+        }
+        &.Cancelled{
+            color: crimson;
+            background-color: rgba(224, 78, 78, 0.15);
+        }
+    }
+}
