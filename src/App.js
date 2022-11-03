@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import New from "./pages/new/New";
-import Single from "./pages/single/Single";
+import Details from "./pages/details/Details";
 import List from "./pages/list/List";
 
 const App = () => {
@@ -18,12 +18,12 @@ const App = () => {
         <Route exact path="/login" element={<Login />} />
         <Route path="/users">
           <Route exact index element={<List />} />
-          <Route exact path=":userId" element={<Single />} />
+          <Route exact path=":userId" element={<Details />} />
           <Route exact path="new" element={<New />} />
         </Route>
         <Route path="/products">
           <Route exact index element={<List />} />
-          <Route exact path=":productId" element={<Single />} />
+          <Route exact path=":productId" element={<Details />} />
           <Route exact path="new" element={<New />} />
         </Route>
       </Routes>

@@ -1,0 +1,87 @@
+.details{
+    display: flex;
+    width: 100%;
+
+    .details-container{
+        flex: 6;
+
+
+        .top{
+            display: flex;
+            padding: 2rem;
+            gap: 2rem;
+
+            .left{
+                flex: 1;
+                box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47); 
+                padding: 2rem;
+                position: relative;
+
+                .edit-btn{
+                    display: flex;
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    padding: 0.5rem;
+                    color: #7451f8;
+                    background-color: #7551f840;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 0.5rem;
+                    cursor:pointer
+                }
+
+                .item{
+                    display: flex;
+                    gap: 2rem;
+
+                    .item-image{
+                        width: 10rem;
+                        height: 10rem;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .item-details{
+                        .item-title{
+                            margin-bottom: 1rem;
+                            color: #555;
+                        }
+
+                        .info{
+                            margin-bottom: 1rem;
+                            font-size: 1.3rem;
+
+                            .item-key{
+                                font-weight:600;
+                                color: rgb(160, 160, 160);
+                                margin-right: 0.5px;
+                            }
+
+                            .item-value{
+                                padding: 0.7rem;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right{
+                flex: 2;
+            }
+        }
+
+        .bottom{
+            padding: 2rem;
+            box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47); 
+            margin: 1rem 2rem;
+        }
+    }
+
+    .title{
+        font-size: 1.5rem;
+        color: lightgray;
+        margin-bottom: 2rem;
+    }
+}

@@ -1,0 +1,56 @@
+.data-table{
+    height: 60rem;
+    padding: 2rem;
+
+    .image-cell{
+        display: flex;
+        align-items: center;
+
+        .cell-img{
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
+        }
+    }
+
+    .status-cell{
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        &.active{
+            background-color: rgba(0, 128, 0, 0.05); 
+            color: green;
+        }
+        &.inactive{
+            background-color: rgba(128, 0, 0, 0.05);
+            color: crimson;
+        }
+        &.pending{
+            background-color: rgba(255, 217, 0, 0.05);
+            color: goldenrod;
+        }
+    }
+
+    .cell-action{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        .view-btn{
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.4rem;
+            color: darkblue;
+            border: 1px dotted rgb(22, 22, 197);
+            cursor: pointer;
+        }
+        .delete-btn{
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.4rem;
+            color: crimson;
+            border: 1px dotted rgb(202, 24, 59);
+            cursor: pointer;
+        }
+    }
+}
