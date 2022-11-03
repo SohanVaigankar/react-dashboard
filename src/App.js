@@ -10,6 +10,10 @@ import New from "./pages/new/New";
 import Details from "./pages/details/Details";
 import List from "./pages/list/List";
 
+// utils
+import { userInputs } from "./utils/formats/formInputFormat";
+import { productInputs } from "./utils/formats/formInputFormat";
+
 const App = () => {
   return (
     <div className="app">
@@ -19,12 +23,20 @@ const App = () => {
         <Route path="/users">
           <Route exact index element={<List />} />
           <Route exact path=":userId" element={<Details />} />
-          <Route exact path="new" element={<New />} />
+          <Route
+            exact
+            path="new"
+            element={<New inputs={userInputs} title="Add New User" />}
+          />
         </Route>
         <Route path="/products">
           <Route exact index element={<List />} />
           <Route exact path=":productId" element={<Details />} />
-          <Route exact path="new" element={<New />} />
+          <Route
+            exact
+            path="new"
+            element={<New inputs={productInputs} title="Add New Product" />}
+          />
         </Route>
       </Routes>
     </div>

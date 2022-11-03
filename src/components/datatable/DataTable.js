@@ -1,5 +1,6 @@
 import React from "react";
 import "./datatable.scss";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 // data table materia ui
 import { DataGrid } from "@mui/x-data-grid";
@@ -8,6 +9,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../utils/data/dataTableSource";
 
 const DataTable = () => {
+  const {pathname} = useLocation();
   const actionColumn = [
     {
       field: "action",
@@ -16,7 +18,9 @@ const DataTable = () => {
       renderCell: () => {
         return (
           <div className="cell-action">
-            <div className="view-btn">View</div>
+            <Link to="/users/test" style={{ textDecoration: "none" }}>
+              <div className="view-btn">View</div>
+            </Link>
             <div className="delete-btn">Delete</div>
           </div>
         );
@@ -26,6 +30,12 @@ const DataTable = () => {
 
   return (
     <div className="data-table">
+      <div className="datatable-title">
+        {pathname}
+        <Link to="/users/new" className="link">
+          Add New
+        </Link>
+      </div>
       <DataGrid
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
