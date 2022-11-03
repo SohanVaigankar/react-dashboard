@@ -7,7 +7,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Widget from "../../components/widgets/Widget";
 import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/list/List";
+import ProductList from "../../components/productlist/ProductList";
 
 const Home = () => {
   return (
@@ -27,7 +27,7 @@ const Home = () => {
         </div>
         <div className="list-container">
           <div className="list-title">Recent Transcations</div>
-          <List />
+          <ProductList />
         </div>
       </div>
     </div>

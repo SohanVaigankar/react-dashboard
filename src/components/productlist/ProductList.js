@@ -1,5 +1,5 @@
 import React from "react";
-import "./list.scss";
+import "./productlist.scss";
 
 // material UI table
 import Table from "@mui/material/Table";
@@ -10,7 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const List = () => {
+const ProductList = () => {
   const rows = [
     {
       id: 1143155,
@@ -65,7 +65,7 @@ const List = () => {
   ];
 
   return (
-    <TableContainer component={Paper} className="list">
+    <TableContainer component={Paper} className="product-list">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -107,4 +107,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ProductList;
