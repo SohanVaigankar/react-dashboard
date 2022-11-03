@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,16 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ProfileIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+// context
+import { ThemeContext } from "../../context/ThemeContext";
+import {
+  ENABLE_DARK_THEME,
+  ENABLE_LIGHT_THEME,
+} from "../../context/actions.type";
+
 const Sidebar = () => {
+  const { dispatch } = useContext(ThemeContext);
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -109,8 +118,14 @@ const Sidebar = () => {
       </div>
       <p className="bottom-title">THEMES</p>
       <div className="bottom">
-        <div className="theme-option"></div>
-        <div className="theme-option"></div>
+        <div
+          className="theme-option"
+          onClick={() => dispatch({ type: ENABLE_LIGHT_THEME })}
+        ></div>
+        <div
+          className="theme-option"
+          onClick={() => dispatch({ type: ENABLE_DARK_THEME })}
+        ></div>
         <div className="theme-option"></div>
       </div>
     </div>

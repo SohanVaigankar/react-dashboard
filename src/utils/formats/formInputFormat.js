@@ -31,7 +31,7 @@ export const userInputs = [
       id: 5,
       label: "Phone",
       htmlFor:"phone",
-      type: "number",
+      type: "phone",
       placeholder: "+1 234 567 89",
     },
     {
@@ -88,14 +88,14 @@ export const userInputs = [
       id: 4,
       label: "Price",
       htmlFor:"price",
-      type: "text",
+      type: "number",
       placeholder: "100",
     },
     {
       id: 5,
       label: "Stock",
       htmlFor:"stock",
-      type: "text",
+      type: "number",
       placeholder: "in stock",
     },
   ];

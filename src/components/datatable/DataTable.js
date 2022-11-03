@@ -1,6 +1,6 @@
 import React from "react";
 import "./datatable.scss";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // data table materia ui
 import { DataGrid } from "@mui/x-data-grid";
@@ -37,6 +37,7 @@ const DataTable = () => {
         </Link>
       </div>
       <DataGrid
+      className="datagrid"
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
         pageSize={10}

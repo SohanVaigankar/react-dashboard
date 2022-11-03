@@ -68,7 +68,7 @@ const ProductList = () => {
     <TableContainer component={Paper} className="product-list">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <TableRow className="table-rows">
             <TableCell className="tableCell">Tracking ID</TableCell>
             <TableCell className="tableCell">Product</TableCell>
             <TableCell className="tableCell">Customer</TableCell>
@@ -81,7 +81,7 @@ const ProductList = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
+              <TableCell className="tableCell">{row.id}</TableCell>
               <TableCell className="tableCell">
                 <div className="cell-wrapper">
                   <img

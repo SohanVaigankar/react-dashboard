@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import "./styles/dark.scss";
 
 // react-router
 import { Routes, Route } from "react-router-dom";
@@ -14,9 +15,14 @@ import List from "./pages/list/List";
 import { userInputs } from "./utils/formats/formInputFormat";
 import { productInputs } from "./utils/formats/formInputFormat";
 
+// context
+import { ThemeContext } from "./context/ThemeContext";
+
 const App = () => {
+  const { isDarkModeEnabled } = useContext(ThemeContext);
+
   return (
-    <div className="app">
+    <div className={isDarkModeEnabled ? "app dark" : "app"}>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
