@@ -10,6 +10,7 @@ import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Details from "./pages/details/Details";
 import List from "./pages/list/List";
+import PrivateRoute from "./routes/PrivateRoute";
 
 // utils
 import { userInputs } from "./utils/formats/formInputFormat";
@@ -19,29 +20,78 @@ import { productInputs } from "./utils/formats/formInputFormat";
 import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
+  // context
   const { isDarkModeEnabled } = useContext(ThemeContext);
 
   return (
     <div className={isDarkModeEnabled ? "app dark" : "app"}>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
         <Route exact path="/login" element={<Login />} />
         <Route path="/users">
-          <Route exact index element={<List />} />
-          <Route exact path=":userId" element={<Details />} />
+          <Route
+            exact
+            index
+            element={
+              <PrivateRoute>
+                <List />{" "}
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path=":userId"
+            element={
+              <PrivateRoute>
+                <Details />{" "}
+              </PrivateRoute>
+            }
+          />
           <Route
             exact
             path="new"
-            element={<New inputs={userInputs} title="Add New User" />}
+            element={
+              <PrivateRoute>
+                <New inputs={userInputs} title="Add New User" />{" "}
+              </PrivateRoute>
+            }
           />
         </Route>
         <Route path="/products">
-          <Route exact index element={<List />} />
-          <Route exact path=":productId" element={<Details />} />
+          <Route
+            exact
+            index
+            element={
+              <PrivateRoute>
+                <List />{" "}
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path=":productId"
+            element={
+              <PrivateRoute>
+                <Details />{" "}
+              </PrivateRoute>
+            }
+          />
           <Route
             exact
             path="new"
-            element={<New inputs={productInputs} title="Add New Product" />}
+            element={
+              <PrivateRoute>
+                <New inputs={productInputs} title="Add New Product" />{" "}
+              </PrivateRoute>
+            }
           />
         </Route>
       </Routes>
