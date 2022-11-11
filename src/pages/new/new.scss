@@ -69,6 +69,11 @@
                         font-size: 1.5rem;
                         font-weight: 500;
                         cursor: pointer;
+
+                        &:disabled{
+                            background-color: rgba(3, 113, 113, 0.247);
+                            cursor: not-allowed;
+                        }
                     }
                 }
 

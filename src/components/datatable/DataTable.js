@@ -1,20 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./datatable.scss";
 import { Link, useLocation } from "react-router-dom";
 
 // data table materia ui
 import { DataGrid } from "@mui/x-data-grid";
 
+// firebase
+import { db } from "../../configs/firebase";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+
 // data
 import { userColumns, userRows } from "../../utils/data/dataTableSource";
 
 const DataTable = () => {
   // state to manage userdata
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
+
+  // useEffect hook to fetch data from firebase
+  useEffect(() => {
+    const fetchData = async () => {
+      let docs = [];
+      try {
+        const collectionRef = collection(db, "users");
+        const docsSnapshot = await getDocs(collectionRef);
+        docsSnapshot.forEach((doc) => {
+          docs.push({ id: doc.id, ...doc.data() });
+        });
+        setData(docs);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   // function to delete user
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "users", id));
+      setData(data.filter((item) => item.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const { pathname } = useLocation();
@@ -51,6 +78,7 @@ const DataTable = () => {
       </div>
       <DataGrid
         className="datagrid"
+        autoHeight
         rows={data}
         columns={userColumns.concat(actionColumn)}
         pageSize={10}
