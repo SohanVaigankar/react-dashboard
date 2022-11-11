@@ -17,14 +17,17 @@ import ProfileIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 // context
+import { AuthContext } from "../../context/AuthContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import {
   ENABLE_DARK_THEME,
   ENABLE_LIGHT_THEME,
+  LOGOUT,
 } from "../../context/actions.type";
 
 const Sidebar = () => {
   const { dispatch } = useContext(ThemeContext);
+  const authContext = useContext(AuthContext);
 
   return (
     <div className="sidebar">
@@ -108,7 +111,13 @@ const Sidebar = () => {
               <span>Profile</span>
             </li>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link
+            to="/"
+            style={{ textDecoration: "none" }}
+            onClick={() => {
+              authContext.dispatch({ type: LOGOUT });
+            }}
+          >
             <li>
               <LogoutIcon className="icon" />
               <span>Logout</span>
