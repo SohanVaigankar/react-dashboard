@@ -6,9 +6,7 @@ import "./new.scss";
 import { db, auth, storage } from "../../configs/firebase";
 import {
   doc,
-  addDoc,
   setDoc,
-  collection,
   serverTimestamp,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";

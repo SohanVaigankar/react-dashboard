@@ -9,14 +9,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { db } from "../../configs/firebase";
 import {
   collection,
-  getDocs,
   deleteDoc,
   doc,
   onSnapshot,
 } from "firebase/firestore";
 
 // data
-import { userColumns, userRows } from "../../utils/data/dataTableSource";
+import { userColumns } from "../../utils/data/dataTableSource";
 
 const DataTable = () => {
   // state to manage userdata
