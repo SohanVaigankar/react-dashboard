@@ -7,7 +7,13 @@ import { DataGrid } from "@mui/x-data-grid";
 
 // firebase
 import { db } from "../../configs/firebase";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
 
 // data
 import { userColumns, userRows } from "../../utils/data/dataTableSource";
@@ -18,20 +24,40 @@ const DataTable = () => {
 
   // useEffect hook to fetch data from firebase
   useEffect(() => {
-    const fetchData = async () => {
-      let docs = [];
-      try {
-        const collectionRef = collection(db, "users");
-        const docsSnapshot = await getDocs(collectionRef);
-        docsSnapshot.forEach((doc) => {
+    // const fetchData = async () => {
+    //   let docs = [];
+    //   try {
+    //     const collectionRef = collection(db, "users");
+    //     const docsSnapshot = await getDocs(collectionRef);
+    //     docsSnapshot.forEach((doc) => {
+    //       docs.push({ id: doc.id, ...doc.data() });
+    //     });
+    //     setData(docs);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // fetchData();
+
+    // listening to real-time db
+    const unsub = onSnapshot(
+      collection(db, "users"),
+      (snapshot) => {
+        let docs = [];
+        snapshot.docs.forEach((doc) => {
           docs.push({ id: doc.id, ...doc.data() });
         });
         setData(docs);
-      } catch (error) {
+      },
+      (error) => {
         console.log(error);
       }
+    );
+
+    // cleanup fn to clear snapshot to avoid memory leaks
+    return () => {
+      unsub();
     };
-    fetchData();
   }, []);
 
   // function to delete user
