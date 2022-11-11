@@ -28,21 +28,32 @@ const Login = () => {
   // fn to handle login
   const handleLogin = (e) => {
     e.preventDefault();
-
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
         dispatch({ type: LOGIN, payload: { currentUser: user } });
-        // console.log(user);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error.errorMessage);
+        console.log(error)
         // const errorCode = error.code;
-        // const errrorMessage = error.errrorMessage;
+        // const errorMessage = error.message;
         setError(true);
       });
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredentials) => {
+    //     const user = userCredentials.user;
+
+    //     // console.log(user);
+
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.errorMessage);
+    //     // const errorCode = error.code;
+    //     // const errrorMessage = error.errrorMessage;
+    //     setError(true);
+    //   });
   };
 
   return (
