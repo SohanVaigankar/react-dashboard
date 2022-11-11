@@ -36,7 +36,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
         // const errorCode = error.code;
         // const errorMessage = error.message;
         setError(true);
@@ -77,6 +77,14 @@ const Login = () => {
         <button type="submit" className="login-btn">
           Login
         </button>
+        <div className="no-account">
+        <p>if you somehow landed over here, i'm feeling sleepy rn 😴 so gonna make the registration page tomorrow</p>
+        <p>meanwhile you can use this credential 👀</p>
+        <p>email: test@sohan.rocks </p>
+        <p>password: noobmaster69</p>
+        <br />
+        <p>this project is a work in progress👷‍♂️</p>
+        </div>
       </form>
     </div>
   );
