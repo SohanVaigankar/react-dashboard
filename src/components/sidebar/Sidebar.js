@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
 
+// material ui
+import Tooltip from "@mui/material/Tooltip";
+
 // material icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import UsersIcon from "@mui/icons-material/PeopleAlt";
@@ -22,6 +25,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import {
   ENABLE_DARK_THEME,
   ENABLE_LIGHT_THEME,
+  AUTOMATIC_THEME,
   LOGOUT,
 } from "../../context/actions.type";
 
@@ -33,7 +37,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">AdminPanel</span>
+          <span className="logo">redash</span>
         </Link>
       </div>
       <hr />
@@ -113,7 +117,7 @@ const Sidebar = () => {
           </Link>
           <Link
             to="/"
-            style={{ textDecoration: "none" }}
+            className="logout"
             onClick={() => {
               authContext.dispatch({ type: LOGOUT });
             }}
@@ -127,15 +131,26 @@ const Sidebar = () => {
       </div>
       <p className="bottom-title">THEMES</p>
       <div className="bottom">
-        <div
-          className="theme-option"
-          onClick={() => dispatch({ type: ENABLE_LIGHT_THEME })}
-        ></div>
-        <div
-          className="theme-option"
-          onClick={() => dispatch({ type: ENABLE_DARK_THEME })}
-        ></div>
-        <div className="theme-option"></div>
+        <Tooltip title="Light Theme" arrow>
+          <div
+            className="theme-option"
+            onClick={() => dispatch({ type: ENABLE_LIGHT_THEME })}
+          ></div>
+        </Tooltip>
+        <Tooltip title="Dark Theme" arrow>
+          <div
+            className="theme-option"
+            onClick={() => dispatch({ type: ENABLE_DARK_THEME })}
+          ></div>
+        </Tooltip>
+        <Tooltip title="Automatic" arrow>
+          <div
+            className="theme-option"
+            onClick={() => dispatch({ type: AUTOMATIC_THEME })}
+          >
+            <div></div>
+          </div>
+        </Tooltip>
       </div>
     </div>
   );

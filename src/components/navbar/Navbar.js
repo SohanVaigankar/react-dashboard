@@ -7,10 +7,8 @@ import {
   SearchOutlined as SearchIcon,
   DarkModeOutlined as DarkModeIcon,
   LightModeOutlined as LightModeIcon,
-  FullscreenExitOutlined as MinimizeScreenIcon,
   NotificationsNoneOutlined as NotificationIcon,
   ChatBubbleOutlineOutlined as ChatsIcon,
-  ListOutlined as MoreIcon,
 } from "@mui/icons-material";
 
 // context

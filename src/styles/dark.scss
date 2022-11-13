@@ -1,4 +1,5 @@
 .app.dark{
+    transition: all 0.3s ease-in-out;
     background-color: #222;
     color: rgb(156, 156, 156);
 
@@ -19,6 +20,7 @@
     .navbar{
         color: #999;
         border-color: #333;
+        transition: all 0.3s ease-in-out;
 
         .searchbar{
             border-color: gray;
@@ -30,6 +32,7 @@
     }
 
     .sidebar{
+        transition: all 0.3s ease-in-out;
         background-color: rgb(39, 39, 39);
         color: rgb(156, 156, 156);
         border-color: #333;
@@ -41,6 +44,7 @@
         }
 
         hr{
+            transition: all 0.3s ease-in-out;
             border-color: #333;
         }
 

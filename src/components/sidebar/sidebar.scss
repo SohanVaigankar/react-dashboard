@@ -54,6 +54,7 @@
                     color: #888;
                     margin-left: 0.8rem;
                 }
+                
             }
 
         }
@@ -79,7 +80,14 @@
                 background-color: #333;
             }
             &:nth-child(3){
-                background-color: darkblue;
+                background-color: #333;
+                overflow: hidden;
+                div{
+                    width: 1.5rem;
+                    height: 4.5rem;
+                    background-color: #fafafa;
+                    transform: rotate(45deg);
+                }
             }
         }
     }
