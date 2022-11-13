@@ -25,15 +25,11 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="searchbar">
           <input type="text" placeholder="search..." />
-          <SearchIcon />
+          <div className="search-icon"><SearchIcon/></div>
         </div>
         <div className="nav-items">
-          <div className="item">
-            <LanguageIcon className="navbar-list-icon" />
-            <span>English</span>
-          </div>
           <div
-            className="item"
+            className="item theme-toggle"
             onClick={() => dispatch({ type: TOGGLE_THEME })}
           >
             {isDarkModeEnabled ? (
@@ -43,7 +39,8 @@ const Navbar = () => {
             )}
           </div>
           <div className="item">
-            <MinimizeScreenIcon className="navbar-list-icon" />
+            <LanguageIcon className="navbar-list-icon" />
+            <span>English</span>
           </div>
           <div className="item">
             <NotificationIcon className="navbar-list-icon" />
@@ -52,9 +49,6 @@ const Navbar = () => {
           <div className="item">
             <ChatsIcon className="navbar-list-icon" />
             <div className="counter">1</div>
-          </div>
-          <div className="item">
-            <MoreIcon className="navbar-list-icon" />
           </div>
           <div className="item">
             <img

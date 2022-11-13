@@ -14,20 +14,37 @@
         justify-content: space-between;
 
         .searchbar{
+            height: 2.3rem;
             width: 30%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border: 0.5px solid lightgray;
-            padding: 0.3rem;
+            border-radius: 0.5rem;
+            padding: 0.3rem 1rem;
+            cursor: text;
+            overflow: hidden;
 
+            
             input{
                 border:none;
                 outline: none;
                 background-color: transparent;
+                font-size: 1.2rem;
+                
+            }
 
-                &::placeholder{
-                    font-size: 1.2;
+            .search-icon{
+                width: 20%;
+                height: 2.3rem;
+                margin-right: -1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: rgba(200, 161, 219, 0.16);
                 }
             }
         }
@@ -39,23 +56,30 @@
             .item{
                 display: flex;
                 align-items: center;
-                margin-right: 2rem;
+                margin:0rem  1.4rem;
                 position: relative;
                 cursor: pointer;
 
-                .navbar-list-icon{
-                    font-size: 1.6rem;
-                    &:nth-child(1){
-                        margin-left: 1rem;
-                            margin-right: 0.5rem;
-                        
+                
+                &:nth-child(2){
+                    .navbar-list-icon{
+                        font-size: 1.6rem;
+                    }
+                    span{
+                        margin-left: 0.4rem;
                     }
                 }
+
+                &:last-child{
+                    margin-right: 0;
+                }
+
 
                 .avatar{
                     width: 3rem;
                     height: 3rem;
                     border-radius: 50%;
+                    border: 2px solid rgb(189, 91, 222);
                 }
 
                 .counter{
@@ -70,8 +94,12 @@
                     font-size: 0.8rem;
                     font-weight: 600;
                     position: absolute;
-                    top: -0.4rem;
-                    right: -0.2rem;
+                    top: -0.5rem;
+                    right: -0.4rem;
+                }
+
+                &.theme-toggle{
+                    transition: all 0.3s ease-in-out;
                 }
             }
 
