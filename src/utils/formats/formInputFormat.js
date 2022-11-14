@@ -100,3 +100,48 @@ export const userInputs = [
     },
   ];
   
+  export const orderInputs = [
+    {
+      id: 1,
+      label: "Item",
+      htmlFor:"item",
+      type: "text",
+      placeholder: "Apple Macbook Pro",
+    },
+    {
+      id: 2,
+      label: "Customer Name",
+      htmlFor:"customername",
+      type: "text",
+      placeholder: "Tony Stark",
+    },
+    {
+      id: 3,
+      label: "Category",
+      htmlFor:"category",
+      type: "text",
+      placeholder: "Computers",
+    },
+    {
+      id: 4,
+      label: "Price",
+      htmlFor:"price",
+      type: "number",
+      placeholder: "100",
+    },
+    {
+      id: 5,
+      label: "Quantity",
+      htmlFor:"quantity",
+      type: "number",
+      placeholder: "10",
+    },
+    {
+      id: 6,
+      label: "Total Amount",
+      htmlFor:"totalamount",
+      type: "number",
+      placeholder: "1000",
+    },
+  ];
+  

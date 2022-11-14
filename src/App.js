@@ -13,8 +13,11 @@ import List from "./pages/list/List";
 import PrivateRoute from "./routes/PrivateRoute";
 
 // utils
-import { userInputs } from "./utils/formats/formInputFormat";
-import { productInputs } from "./utils/formats/formInputFormat";
+import {
+  userInputs,
+  orderInputs,
+  productInputs,
+} from "./utils/formats/formInputFormat";
 
 // context
 import { ThemeContext } from "./context/ThemeContext";
@@ -90,6 +93,35 @@ const App = () => {
             element={
               <PrivateRoute>
                 <New inputs={productInputs} title="Add New Product" />{" "}
+              </PrivateRoute>
+            }
+          />
+        </Route>
+        <Route path="/orders">
+          <Route
+            exact
+            index
+            element={
+              <PrivateRoute>
+                <List />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path=":orderId"
+            element={
+              <PrivateRoute>
+                <Details />{" "}
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path="new"
+            element={
+              <PrivateRoute>
+                <New inputs={orderInputs} title="New Order" />
               </PrivateRoute>
             }
           />

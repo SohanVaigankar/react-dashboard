@@ -7,26 +7,27 @@ import { DataGrid } from "@mui/x-data-grid";
 
 // firebase
 import { db } from "../../configs/firebase";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 
 // data
-import { userColumns } from "../../utils/data/dataTableSource";
+import { userColumns, productColumns } from "../../utils/data/dataTableSource";
 
 const DataTable = () => {
   // state to manage userdata
   const [data, setData] = useState([]);
+
+  // useLocation to find the find the list name user list or product list or order list or transactions
+  const pathname = useLocation().pathname.substring(
+    1,
+    useLocation().pathname.length
+  );
 
   // useEffect hook to fetch data from firebase
   useEffect(() => {
     // const fetchData = async () => {
     //   let docs = [];
     //   try {
-    //     const collectionRef = collection(db, "users");
+    //     const collectionRef = collection(db, pathname);
     //     const docsSnapshot = await getDocs(collectionRef);
     //     docsSnapshot.forEach((doc) => {
     //       docs.push({ id: doc.id, ...doc.data() });
@@ -40,7 +41,7 @@ const DataTable = () => {
 
     // listening to real-time db
     const unsub = onSnapshot(
-      collection(db, "users"),
+      collection(db, pathname),
       (snapshot) => {
         let docs = [];
         snapshot.docs.forEach((doc) => {
@@ -57,19 +58,18 @@ const DataTable = () => {
     return () => {
       unsub();
     };
-  }, []);
+  }, [pathname]);
 
   // function to delete user
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, pathname, id));
       setData(data.filter((item) => item.id !== id));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const { pathname } = useLocation();
   const actionColumn = [
     {
       field: "action",
@@ -78,7 +78,7 @@ const DataTable = () => {
       renderCell: (params) => {
         return (
           <div className="cell-action">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/${pathname}/test`} style={{ textDecoration: "none" }}>
               <div className="view-btn">View</div>
             </Link>
             <div
@@ -97,7 +97,7 @@ const DataTable = () => {
     <div className="data-table">
       <div className="datatable-title">
         {pathname}
-        <Link to="/users/new" className="link">
+        <Link to={`/${pathname}/new`} className="link">
           Add New
         </Link>
       </div>
@@ -105,7 +105,11 @@ const DataTable = () => {
         className="datagrid"
         autoHeight
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={
+          pathname === "users"
+            ? userColumns.concat(actionColumn)
+            : productColumns.concat(actionColumn)
+        }
         pageSize={10}
         rowsPerPageOptions={[10]}
         checkboxSelection
