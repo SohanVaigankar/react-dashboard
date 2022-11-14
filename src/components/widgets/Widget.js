@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./widget.scss";
+import { Link } from "react-router-dom";
 
 // material icons
 import {
@@ -129,7 +130,9 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">{amount}</span>
-        <span className="link">{data.link}</span>
+        <Link to={`/${type}`} className="link" style={{ textDecoration: "none" }}>
+          {data.link}
+        </Link>
       </div>
       <div className="right">
         <div
