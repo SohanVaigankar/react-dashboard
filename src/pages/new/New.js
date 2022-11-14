@@ -7,6 +7,8 @@ import { db, auth, storage } from "../../configs/firebase";
 import {
   doc,
   setDoc,
+  addDoc,
+  collection,
   serverTimestamp,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -87,15 +89,33 @@ const New = ({ inputs, title }) => {
   const handleAddNew = async (e) => {
     e.preventDefault();
     try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-      await setDoc(doc(db, "users", response.user.uid), {
-        ...data,
-        timeStamp: serverTimestamp(),
-      });
+      switch (title) {
+        case "Add New User":
+          const response = await createUserWithEmailAndPassword(
+            auth,
+            data.email,
+            data.password
+          );
+          await setDoc(doc(db, "users", response.user.uid), {
+            ...data,
+            timeStamp: serverTimestamp(),
+          });
+          break;
+        case "Add New Product":
+          await addDoc(collection(db, "products"), {
+            ...data,
+            timeStamp: serverTimestamp(),
+          });
+          break;
+        case "New Order":
+          await addDoc(collection(db, "orders"), {
+            ...data,
+            timeStamp: serverTimestamp(),
+          });
+          break;
+        default:
+          break;
+      }
 
       navigate(-1);
     } catch (error) {

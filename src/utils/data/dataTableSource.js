@@ -85,7 +85,7 @@ export const productColumns = [
 export const orderColumns = [
   { field: "id", headerName: "ID", width: 70 },
   {
-    field: "product",
+    field: "item_name",
     headerName: "Product",
     width: 300,
     renderCell: (params) => {
@@ -109,7 +109,7 @@ export const orderColumns = [
     width: 100,
   },
   {
-    field: "",
+    field: "status",
     headerName: "Status",
     width: 160,
     renderCell: (params) => {
@@ -123,6 +123,11 @@ export const orderColumns = [
   {
     field: "category",
     headerName: "Category",
+    width: 180,
+  },
+  {
+    field: "timeStamp",
+    headerName: "purchase time",
     width: 180,
   },
 ];
