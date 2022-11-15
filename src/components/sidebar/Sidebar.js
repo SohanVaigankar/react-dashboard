@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 
 // material icons
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import UsersIcon from "@mui/icons-material/PeopleAlt";
-import ProductsIcon from "@mui/icons-material/Store";
-import OrdersIcon from "@mui/icons-material/ShoppingCart";
-import DeliveryIcon from "@mui/icons-material/LocalShipping";
-import StatsIcon from "@mui/icons-material/Analytics";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import SystemHealthIcon from "@mui/icons-material/MonitorHeart";
-import LogsIcon from "@mui/icons-material/Article";
-import SettingsIcon from "@mui/icons-material/Settings";
-import ProfileIcon from "@mui/icons-material/Person";
-import LogoutIcon from "@mui/icons-material/Logout";
+import {
+  Dashboard,
+  Store as ProductsIcon,
+  ShoppingCart as OrdersIcon,
+  PeopleAlt as UsersIcon,
+  AccountBalanceWallet as Wallet,
+  CalendarMonth,
+  Logout,
+  Person,
+  Settings,
+  Article as Activity, Calculate
+} from "@mui/icons-material";
 
 // context
 import { AuthContext } from "../../context/AuthContext";
@@ -40,13 +40,12 @@ const Sidebar = () => {
           <span className="logo">redash</span>
         </Link>
       </div>
-      <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
-              <DashboardIcon className="icon" />
+              <Dashboard className="icon" />
               <span>Dashboard</span>
             </li>
           </Link>
@@ -69,49 +68,42 @@ const Sidebar = () => {
               <span>Orders</span>
             </li>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            {" "}
+          <Link to="/earnings" style={{ textDecoration: "none" }}>
             <li>
-              <DeliveryIcon className="icon" />
-              <span>Delivery</span>
+              <Wallet className="icon" />
+              <span>Earnings</span>
             </li>
           </Link>
           <p className="title">UPDATES</p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/calender" style={{ textDecoration: "none" }}>
             <li>
-              <StatsIcon className="icon" />
-              <span>Stats</span>
-            </li>
-          </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <li>
-              <NotificationsIcon className="icon" />
-              <span>Notifications</span>
+              <CalendarMonth className="icon" />
+              <span>Calender</span>
             </li>
           </Link>
           <p className="title">UTILITY</p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/calculators" style={{ textDecoration: "none" }}>
             <li>
-              <SystemHealthIcon className="icon" />
-              <span>System Health</span>
+              <Calculate className="icon" />
+              <span>Calculators</span>
             </li>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/activity" style={{ textDecoration: "none" }}>
             <li>
-              <LogsIcon className="icon" />
-              <span>Logs</span>
+              <Activity className="icon" />
+              <span>Activity</span>
             </li>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/settings" style={{ textDecoration: "none" }}>
             <li>
-              <SettingsIcon className="icon" />
+              <Settings className="icon" />
               <span>Settings</span>
             </li>
           </Link>
           <p className="title">USER</p>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
-              <ProfileIcon className="icon" />
+              <Person className="icon" />
               <span>Profile</span>
             </li>
           </Link>
@@ -123,7 +115,7 @@ const Sidebar = () => {
             }}
           >
             <li>
-              <LogoutIcon className="icon" />
+              <Logout className="icon" />
               <span>Logout</span>
             </li>
           </Link>

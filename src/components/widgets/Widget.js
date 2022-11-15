@@ -78,7 +78,7 @@ const Widget = ({ type }) => {
       data = {
         title: "PRODUCTS",
         query: "products",
-        link: "view transactions",
+        link: "view all products",
         icon: (
           <AccountBalanceWalletOutlined
             className="icon"

@@ -11,6 +11,11 @@ import New from "./pages/new/New";
 import Details from "./pages/details/Details";
 import List from "./pages/list/List";
 import PrivateRoute from "./routes/PrivateRoute";
+import Earnings from "./pages/earnings/Earnings";
+import Settings from "./pages/settings/Settings";
+import Activity from "./pages/activity/Activity";
+import Calculators from "./pages/calculators/Calculators";
+import Calender from "./pages/calender/Calender";
 
 // utils
 import {
@@ -126,6 +131,51 @@ const App = () => {
             }
           />
         </Route>
+        <Route
+          exact
+          path="/earnings"
+          element={
+            <PrivateRoute>
+              <Earnings />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/settings"
+          element={
+            <PrivateRoute>
+              <Settings />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/activity"
+          element={
+            <PrivateRoute>
+              <Activity />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/calculators"
+          element={
+            <PrivateRoute>
+              <Calculators />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/calender"
+          element={
+            <PrivateRoute>
+              <Calender />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );

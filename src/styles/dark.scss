@@ -36,8 +36,10 @@
         background-color: rgb(39, 39, 39);
         color: rgb(156, 156, 156);
         border-color: #333;
-
+        
         .top{
+            transition: all 0.3s ease-in-out;
+            border-color: #333;
             .logo{
                 // color: #999;
             }
