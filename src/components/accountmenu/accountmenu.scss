@@ -1,0 +1,43 @@
+.menu-profile-pic{
+    padding:0rem  3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+
+    img{
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        margin: 1.2rem auto;
+        
+    }
+
+    .details{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+
+        p{
+            text-align: center;
+            &:first-child{
+                font-weight: 600;
+            }
+
+            &:nth-child(2){
+                opacity: 0.6;
+            }
+        }
+        
+    }
+    
+}
+
+.menu-item-link{
+    text-decoration: none;
+    color: #333;
+
+    
+}
+

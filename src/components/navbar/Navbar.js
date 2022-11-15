@@ -11,6 +11,9 @@ import {
   ChatBubbleOutlineOutlined as ChatsIcon,
 } from "@mui/icons-material";
 
+// components
+import AccountMenu from "../accountmenu/AccountMenu";
+
 // context
 import { ThemeContext } from "../../context/ThemeContext";
 import { TOGGLE_THEME } from "../../context/actions.type";
@@ -23,7 +26,9 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="searchbar">
           <input type="text" placeholder="search..." />
-          <div className="search-icon"><SearchIcon/></div>
+          <div className="search-icon">
+            <SearchIcon />
+          </div>
         </div>
         <div className="nav-items">
           <div
@@ -49,11 +54,7 @@ const Navbar = () => {
             <div className="counter">1</div>
           </div>
           <div className="item">
-            <img
-              src="https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt="profile pic"
-              className="avatar"
-            />
+            <AccountMenu />
           </div>
         </div>
       </div>
